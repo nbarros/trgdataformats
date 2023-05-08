@@ -6,8 +6,6 @@
  * received with this code.
  */
 
-#include "submodules.hpp"
-
 #include "pybind11/pybind11.h"
 #include "pybind11/stl.h"
 
@@ -15,13 +13,14 @@ namespace py = pybind11;
 
 namespace dunedaq::trgdataformats::python {
 
+  extern void register_trigger_primitive(pybind11::module &);
+
 PYBIND11_MODULE(_daq_trgdataformats_py, m)
 {
 
   m.doc() = "C++ implementation of the trgdataformats modules";
 
-  py::module_ trigger_primitive_module = m.def_submodule("trigger_primitive");
-  register_trigger_primitive(trigger_primitive_module);
+  register_trigger_primitive(m);
 }
 
 } // namespace dunedaq::trgdataformats::python
