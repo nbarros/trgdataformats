@@ -12,6 +12,9 @@
 #include "trgdataformats/Types.hpp"
 
 #include <cstdint>
+#include <map>
+#include <string>
+#include <iostream>
 
 namespace dunedaq::trgdataformats {
 
@@ -59,6 +62,23 @@ struct TriggerCandidateData
   Type type = Type::kUnknown;
   Algorithm algorithm = Algorithm::kUnknown; // NOLINT(build/unsigned)
 };
+
+inline std::map<TriggerCandidateData::Type, std::string>
+get_trigger_candidate_type_names()
+{
+  return {
+    { TriggerCandidateData::Type::kUnknown, "kUnknown" },
+    { TriggerCandidateData::Type::kTiming, "kTiming" },
+    { TriggerCandidateData::Type::kTPCLowE, "kTPCLowE" },
+    { TriggerCandidateData::Type::kSupernova, "kSupernova" },
+    { TriggerCandidateData::Type::kRandom, "kRandom" },
+    { TriggerCandidateData::Type::kPrescale, "kPrescale" },
+    { TriggerCandidateData::Type::kADCSimpleWindow, "kADCSimpleWindow" },
+    { TriggerCandidateData::Type::kHorizontalMuon, "kHorizontalMuon" },
+    { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
+    { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
+  };
+}
 
 } // namespace dunedaq::trgdataformats
 
