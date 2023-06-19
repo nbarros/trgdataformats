@@ -20,20 +20,7 @@ register_trigger_bitwords(py::module& m)
 {
   py::class_<TriggerCandidateData> py_triggerbits(m, "TriggerBits", py::buffer_protocol());
 
-  py_triggerbits.def("get_trigger_candidate_type_names", &trgdataformats::get_trigger_candidate_type_names);
-
-  py::enum_<TriggerCandidateData::Type>(m, "TriggerBitwords")
-    .value("kUnknown", TriggerCandidateData::Type::kUnknown)
-    .value("kTiming", TriggerCandidateData::Type::kTiming)
-    .value("kTPCLowE", TriggerCandidateData::Type::kTPCLowE)
-    .value("kSupernova", TriggerCandidateData::Type::kSupernova)
-    .value("kRandom", TriggerCandidateData::Type::kRandom)
-    .value("kPrescale", TriggerCandidateData::Type::kPrescale)
-    .value("kADCSimpleWindow", TriggerCandidateData::Type::kADCSimpleWindow)
-    .value("kHorizontalMuon", TriggerCandidateData::Type::kHorizontalMuon)
-    .value("kMichelElectron", TriggerCandidateData::Type::kMichelElectron)
-    .value("kPlaneCoincidence", TriggerCandidateData::Type::kPlaneCoincidence)
-    .export_values();
+  py_triggerbits.def("string_to_fragment_type_value", &trgdataformats::string_to_fragment_type_value);
 
 }
 

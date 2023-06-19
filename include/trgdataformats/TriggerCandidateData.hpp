@@ -14,7 +14,6 @@
 #include <cstdint>
 #include <map>
 #include <string>
-#include <iostream>
 
 namespace dunedaq::trgdataformats {
 
@@ -63,6 +62,7 @@ struct TriggerCandidateData
   Algorithm algorithm = Algorithm::kUnknown; // NOLINT(build/unsigned)
 };
 
+// This map needs to be updated for each new TC type, as this is used when configuring Trigger Bitwords, affecting trigger logic in trigger::MLT
 inline std::map<TriggerCandidateData::Type, std::string>
 get_trigger_candidate_type_names()
 {
@@ -78,6 +78,16 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
     { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
   };
+}
+
+inline int
+string_to_fragment_type_value(const std::string& name)
+{
+  for (auto& it : get_trigger_candidate_type_names()) {
+    if (it.second == name)
+      return static_cast<int>(it.first);
+  }
+  return -1;
 }
 
 } // namespace dunedaq::trgdataformats
