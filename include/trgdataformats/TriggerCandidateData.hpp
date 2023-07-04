@@ -12,6 +12,8 @@
 #include "trgdataformats/Types.hpp"
 
 #include <cstdint>
+#include <map>
+#include <string>
 
 namespace dunedaq::trgdataformats {
 
@@ -59,6 +61,34 @@ struct TriggerCandidateData
   Type type = Type::kUnknown;
   Algorithm algorithm = Algorithm::kUnknown; // NOLINT(build/unsigned)
 };
+
+// This map needs to be updated for each new TC type, as this is used when configuring Trigger Bitwords, affecting trigger logic in trigger::MLT
+inline std::map<TriggerCandidateData::Type, std::string>
+get_trigger_candidate_type_names()
+{
+  return {
+    { TriggerCandidateData::Type::kUnknown, "kUnknown" },
+    { TriggerCandidateData::Type::kTiming, "kTiming" },
+    { TriggerCandidateData::Type::kTPCLowE, "kTPCLowE" },
+    { TriggerCandidateData::Type::kSupernova, "kSupernova" },
+    { TriggerCandidateData::Type::kRandom, "kRandom" },
+    { TriggerCandidateData::Type::kPrescale, "kPrescale" },
+    { TriggerCandidateData::Type::kADCSimpleWindow, "kADCSimpleWindow" },
+    { TriggerCandidateData::Type::kHorizontalMuon, "kHorizontalMuon" },
+    { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
+    { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
+  };
+}
+
+inline int
+string_to_fragment_type_value(const std::string& name)
+{
+  for (auto& it : get_trigger_candidate_type_names()) {
+    if (it.second == name)
+      return static_cast<int>(it.first);
+  }
+  return static_cast<int>(TriggerCandidateData::Type::kUnknown);
+}
 
 } // namespace dunedaq::trgdataformats
 
