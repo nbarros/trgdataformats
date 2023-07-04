@@ -87,7 +87,7 @@ string_to_fragment_type_value(const std::string& name)
     if (it.second == name)
       return static_cast<int>(it.first);
   }
-  return -1;
+  return static_cast<int>(TriggerCandidateData::Type::kUnknown);
 }
 
 } // namespace dunedaq::trgdataformats
