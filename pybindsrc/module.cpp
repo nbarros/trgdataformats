@@ -21,8 +21,9 @@ PYBIND11_MODULE(_daq_trgdataformats_py, m)
   m.doc() = "C++ implementation of the trgdataformats modules";
 
   register_trigger_primitive(m);
-  register_trigger_bitwords(m);
+  // register_trigger_bitwords(m);
   register_trigger_activity(m);
+  register_trigger_candidate(m);
 }
 
 } // namespace dunedaq::trgdataformats::python

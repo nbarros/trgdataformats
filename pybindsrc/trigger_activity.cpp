@@ -10,6 +10,7 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <cstring>
 
 namespace py = pybind11;
 
@@ -17,8 +18,23 @@ namespace dunedaq {
 namespace trgdataformats {
 namespace python {
 
+/*
+ Doesn't work
+*/
 struct TriggerActivityWrapper {
-  TriggerActivity* ptr;
+
+
+  TriggerActivityWrapper(void* ptr, size_t size) {
+    m_size = size;
+    m_data.reset(new uint8_t[m_size]);
+    std::memcpy(m_data.get(), ptr, size);
+  }
+
+  TriggerActivity* ptr() { return reinterpret_cast<TriggerActivity*>(m_data.get());  }
+
+  size_t m_size;
+  std::unique_ptr<uint8_t[]> m_data;
+  
 };
 
 void
@@ -83,35 +99,37 @@ register_trigger_activity(py::module& m)
 
 
     py::class_<TriggerActivityWrapper>(m, "TriggerActivityWrapper", py::buffer_protocol())
-      .def(py::init())
-      .def(py::init([](py::capsule capsule) {
-          TriggerActivityWrapper taw;
-          taw.ptr = static_cast<TriggerActivity*>(capsule.get_pointer());
-          return taw;
-        }))
+      // .def(py::init())
+      // .def(py::init([](py::capsule capsule) {
+      //     TriggerActivityWrapper taw;
+      //     taw.ptr = static_cast<TriggerActivity*>(capsule.get_pointer());
+      //     return taw;
+      //   }))
       .def(py::init([](py::bytes bytes){
           py::buffer_info info(py::buffer(bytes).request());
-          TriggerActivityWrapper taw;
 
-          taw.ptr = static_cast<TriggerActivity*>(info.ptr);
+          TriggerActivityWrapper taw(info.ptr, info.itemsize);
+
+          // taw.ptr = static_cast<TriggerActivity*>(info.ptr);
           return taw;
         }))
 
       .def("get_bytes",
           [](TriggerActivityWrapper& taw) -> py::bytes {
-            return py::bytes(reinterpret_cast<char*>(taw.ptr), sizeof(TriggerActivity)+taw.ptr->n_inputs*sizeof(TriggerPrimitive));
+            return py::bytes(reinterpret_cast<char*>(taw.ptr()), taw.m_size);
           }, py::return_value_policy::reference_internal
       )
-      .def_property_readonly("data", [](TriggerActivityWrapper& self) -> TriggerActivityData& {return self.ptr->data;})
-      .def("__len__", [](TriggerActivityWrapper& self){ return self.ptr->n_inputs; })
+      .def_property_readonly("data", [](TriggerActivityWrapper& self) -> TriggerActivityData& {return self.ptr()->data;})
+      .def("__len__", [](TriggerActivityWrapper& self){ return self.ptr()->n_inputs; })
       .def("__getitem__",
-            [](const TriggerActivityWrapper &self, size_t i) -> const TriggerPrimitive& {
-                if (i >= self.ptr->n_inputs) {
+            [](TriggerActivityWrapper &self, size_t i) -> const TriggerPrimitive& {
+                if (i >= self.ptr()->n_inputs) {
                     throw py::index_error();
                 }
-                return self.ptr->inputs[i];
+                return self.ptr()->inputs[i];
             }, py::return_value_policy::reference_internal)
-      .def("sizeof", [](TriggerActivityWrapper& self){ return sizeof(TriggerActivity)+self.ptr->n_inputs*sizeof(TriggerPrimitive); })
+      .def("sizeof", [](TriggerActivityWrapper& self){ return self.m_size; })
+      // .def("sizeof", [](TriggerActivityWrapper& self){ return sizeof(TriggerActivity)+self.ptr->n_inputs*sizeof(TriggerPrimitive); })
       
       ;
 }
