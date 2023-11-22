@@ -28,7 +28,6 @@ struct TriggerActivityHolder {
     m_size = size;
     m_data.reset(new uint8_t[m_size]);
     std::memcpy(m_data.get(), ptr, size);
-    std::cout << "Buffer size " << size << " vs TAData size " << sizeof(trgdataformats::TriggerActivityData) << std::endl;
   }
 
   TriggerActivity* ptr() { return reinterpret_cast<TriggerActivity*>(m_data.get());  }
