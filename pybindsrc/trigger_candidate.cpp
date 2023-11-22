@@ -115,7 +115,7 @@ register_trigger_candidate(py::module& m)
           }, py::return_value_policy::reference_internal
       )
       .def_property_readonly("data", [](TriggerCandidateHolder& self) -> TriggerCandidateData& {return self.ptr()->data;})
-      .def("n_inputs", [](TriggerActivityHolder& self){ return self.ptr()->n_inputs; })
+      .def("n_inputs", [](TriggerCandidateHolder& self){ return self.ptr()->n_inputs; })
       .def("__len__", [](TriggerCandidateHolder& self){ return self.ptr()->n_inputs; })
       .def("__getitem__",
             [](TriggerCandidateHolder &self, size_t i) -> const TriggerActivityData& {
