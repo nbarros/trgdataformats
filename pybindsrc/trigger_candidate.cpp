@@ -21,10 +21,10 @@ namespace python {
 /*
  Doesn't work
 */
-struct TriggerCandidateWrapper {
+struct TriggerCandidateHolder {
 
 
-  TriggerCandidateWrapper(void* ptr, size_t size) {
+  TriggerCandidateHolder(void* ptr, size_t size) {
     m_size = size;
     m_data.reset(new uint8_t[m_size]);
     std::memcpy(m_data.get(), ptr, size);
@@ -88,7 +88,7 @@ register_trigger_candidate(py::module& m)
     ;
 
 
-  py::class_<TriggerCandidate>(m, "TriggerCandidate", py::buffer_protocol())
+  py::class_<TriggerCandidate>(m, "TriggerCandidateOverlay", py::buffer_protocol())
       .def(py::init())
       .def(py::init([](py::capsule capsule) {
         auto tp = *static_cast<TriggerCandidate*>(capsule.get_pointer());
@@ -100,32 +100,31 @@ register_trigger_candidate(py::module& m)
     ;
 
 
-    py::class_<TriggerCandidateWrapper>(m, "TriggerCandidateWrapper", py::buffer_protocol())
+    py::class_<TriggerCandidateHolder>(m, "TriggerCandidate", py::buffer_protocol())
       .def(py::init([](py::bytes bytes){
           py::buffer_info info(py::buffer(bytes).request());
 
-          TriggerCandidateWrapper taw(info.ptr, info.itemsize);
+          TriggerCandidateHolder tch(info.ptr, info.size);
 
-          return taw;
+          return tch;
         }))
 
       .def("get_bytes",
-          [](TriggerCandidateWrapper& taw) -> py::bytes {
-            return py::bytes(reinterpret_cast<char*>(taw.ptr()), taw.m_size);
+          [](TriggerCandidateHolder& tch) -> py::bytes {
+            return py::bytes(reinterpret_cast<char*>(tch.ptr()), tch.m_size);
           }, py::return_value_policy::reference_internal
       )
-      .def_property_readonly("data", [](TriggerCandidateWrapper& self) -> TriggerCandidateData& {return self.ptr()->data;})
-      .def("__len__", [](TriggerCandidateWrapper& self){ return self.ptr()->n_inputs; })
+      .def_property_readonly("data", [](TriggerCandidateHolder& self) -> TriggerCandidateData& {return self.ptr()->data;})
+      .def("n_inputs", [](TriggerCandidateHolder& self){ return self.ptr()->n_inputs; })
+      .def("__len__", [](TriggerCandidateHolder& self){ return self.ptr()->n_inputs; })
       .def("__getitem__",
-            [](TriggerCandidateWrapper &self, size_t i) -> const TriggerActivityData& {
+            [](TriggerCandidateHolder &self, size_t i) -> const TriggerActivityData& {
                 if (i >= self.ptr()->n_inputs) {
                     throw py::index_error();
                 }
                 return self.ptr()->inputs[i];
             }, py::return_value_policy::reference_internal)
-      .def("sizeof", [](TriggerCandidateWrapper& self){ return self.m_size; })
-      // .def("sizeof", [](TriggerCandidateWrapper& self){ return sizeof(TriggerCandidate)+self.ptr->n_inputs*sizeof(TriggerPrimitive); })
-      
+      .def("sizeof", [](TriggerCandidateHolder& self){ return self.m_size; })
       ;
 }
 
