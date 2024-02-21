@@ -28,7 +28,9 @@ register_trigger_primitive(py::module& m)
 
   py::enum_<TriggerPrimitive::Algorithm>(m, "TriggerPrimitive::Algorithm")
     .value("kUnknown", TriggerPrimitive::Algorithm::kUnknown)
-    .value("kTPCDefault", TriggerPrimitive::Algorithm::kTPCDefault)
+    .value("kSimpleThreshold", TriggerPrimitive::Algorithm::kSimpleThreshold)
+    .value("kAbsRunningSum", TriggerPrimitive::Algorithm::kAbsRunningSum)
+    .value("kRunningSum", TriggerPrimitive::Algorithm::kRunningSum)
     .export_values();
 
   py::class_<TriggerPrimitive>(m, "TriggerPrimitive", py::buffer_protocol())
