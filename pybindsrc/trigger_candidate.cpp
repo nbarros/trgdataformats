@@ -74,7 +74,7 @@ register_trigger_candidate(py::module& m)
     .value("kHorizontalMuon", TriggerCandidateData::Algorithm::kHorizontalMuon)
     .value("kPlaneCoincidence", TriggerCandidateData::Algorithm::kPlaneCoincidence)
     .value("kCustom", TriggerCandidateData::Algorithm::kCustom)
-    .value("kCTBHToTriggerCandidate", TriggerCandidateData::Algorithm::kCTBHToTriggerCandidate)
+    .value("kCTBToTriggerCandidate", TriggerCandidateData::Algorithm::kCTBToTriggerCandidate)
     .export_values();
 
   py::class_<TriggerCandidateData>(m, "TriggerCandidateData", py::buffer_protocol())
