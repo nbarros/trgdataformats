@@ -53,6 +53,7 @@ register_trigger_candidate(py::module& m)
     .value("kHorizontalMuon", TriggerCandidateData::Type::kHorizontalMuon)
     .value("kMichelElectron", TriggerCandidateData::Type::kMichelElectron)
     .value("kPlaneCoincidence", TriggerCandidateData::Type::kPlaneCoincidence)
+    .value("kNeutronSourceCalib", TriggerCandidateData::Type::kNeutronSourceCalib)
     .export_values();
 
   py::enum_<TriggerCandidateData::Algorithm>(m, "TriggerCandidateData::Algorithm")
