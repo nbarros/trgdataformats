@@ -31,6 +31,16 @@ struct TriggerCandidateData
     kHorizontalMuon = 7,
     kMichelElectron = 8,
     kPlaneCoincidence = 9,
+    kCTBFakeTrigger = 10,
+    kCTBBeam = 11,
+    kCTBBeamHiLoPressChkv = 12,
+    kCTBBeamLoPressChkv = 13,
+    kCTBBeamHiPressChkv = 14,
+    kCTBOffSpillCosmic = 15,
+    kCTBCosmic = 16, 
+    kCTBBeamNoChkv = 17,
+    kCTBCosmicJura = 18,
+    kCTBCosmicSaleve = 19,
   };
 
   enum class Algorithm
@@ -43,7 +53,8 @@ struct TriggerCandidateData
     kHorizontalMuon = 5,
     kMichelElectron = 6, 
     kPlaneCoincidence = 7,    
-    kCustom = 8, 
+    kCustom = 8,
+    kCTBHToTriggerCandidate = 9,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
@@ -67,16 +78,26 @@ inline std::map<TriggerCandidateData::Type, std::string>
 get_trigger_candidate_type_names()
 {
   return {
-    { TriggerCandidateData::Type::kUnknown, "kUnknown" },
-    { TriggerCandidateData::Type::kTiming, "kTiming" },
-    { TriggerCandidateData::Type::kTPCLowE, "kTPCLowE" },
-    { TriggerCandidateData::Type::kSupernova, "kSupernova" },
-    { TriggerCandidateData::Type::kRandom, "kRandom" },
-    { TriggerCandidateData::Type::kPrescale, "kPrescale" },
-    { TriggerCandidateData::Type::kADCSimpleWindow, "kADCSimpleWindow" },
-    { TriggerCandidateData::Type::kHorizontalMuon, "kHorizontalMuon" },
-    { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
-    { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
+    { TriggerCandidateData::Type::kUnknown,              "kUnknown" },
+    { TriggerCandidateData::Type::kTiming,               "kTiming" },
+    { TriggerCandidateData::Type::kTPCLowE,              "kTPCLowE" },
+    { TriggerCandidateData::Type::kSupernova,            "kSupernova" },
+    { TriggerCandidateData::Type::kRandom,               "kRandom" },
+    { TriggerCandidateData::Type::kPrescale,             "kPrescale" },
+    { TriggerCandidateData::Type::kADCSimpleWindow,      "kADCSimpleWindow" },
+    { TriggerCandidateData::Type::kHorizontalMuon,       "kHorizontalMuon" },
+    { TriggerCandidateData::Type::kMichelElectron,       "kMichelElectron" },
+    { TriggerCandidateData::Type::kPlaneCoincidence,     "kPlaneCoincidence" },
+    { TriggerCandidateData::Type::kCTBFakeTrigger,       "kCTBFakeTrigger" },
+    { TriggerCandidateData::Type::kCTBBeam,              "kCTBBeam" },
+    { TriggerCandidateData::Type::kCTBBeamHiLoPressChkv, "kCTBBeamHiLoPressChkv" },
+    { TriggerCandidateData::Type::kCTBBeamLoPressChkv,   "kCTBBeamLoPressChkv" },
+    { TriggerCandidateData::Type::kCTBBeamHiPressChkv,   "kCTBBeamHiPressChkv" },
+    { TriggerCandidateData::Type::kCTBOffSpillCosmic,    "kCTBOffSpillCosmic" },
+    { TriggerCandidateData::Type::kCTBCosmic,            "kCTBCosmic" },
+    { TriggerCandidateData::Type::kCTBBeamNoChkv,        "kCTBBeamNoChkv" },
+    { TriggerCandidateData::Type::kCTBCosmicJura,        "kCTBCosmicJura" },
+    { TriggerCandidateData::Type::kCTBCosmicSaleve,      "kCTBCosmicSaleve" },
   };
 }
 
