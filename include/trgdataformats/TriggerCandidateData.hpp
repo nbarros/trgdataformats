@@ -31,7 +31,7 @@ struct TriggerCandidateData
     kHorizontalMuon = 7,
     kMichelElectron = 8,
     kPlaneCoincidence = 9,
-    kNeutronSourceCalib = 20,
+    kNeutronSourceCalib = 10,
   };
 
   enum class Algorithm
