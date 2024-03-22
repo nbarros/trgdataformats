@@ -54,7 +54,6 @@ struct TriggerCandidateData
     kMichelElectron = 6, 
     kPlaneCoincidence = 7,    
     kCustom = 8,
-    kCTBToTriggerCandidate = 9,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
