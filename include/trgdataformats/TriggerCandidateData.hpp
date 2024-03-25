@@ -79,6 +79,7 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kHorizontalMuon, "kHorizontalMuon" },
     { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
     { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
+    { TriggerCandidateData::Type::kChannelDistance, "kChannelDistance" },
   };
 }
 
