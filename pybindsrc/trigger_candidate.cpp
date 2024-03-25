@@ -53,6 +53,7 @@ register_trigger_candidate(py::module& m)
     .value("kHorizontalMuon", TriggerCandidateData::Type::kHorizontalMuon)
     .value("kMichelElectron", TriggerCandidateData::Type::kMichelElectron)
     .value("kPlaneCoincidence", TriggerCandidateData::Type::kPlaneCoincidence)
+    .value("kDBSCAN", TriggerCandidateData::Type::kDBSCAN)
     .value("kNeutronSourceCalib", TriggerCandidateData::Type::kNeutronSourceCalib)
     .export_values();
 
@@ -64,6 +65,7 @@ register_trigger_candidate(py::module& m)
     .value("kADCSimpleWindow", TriggerCandidateData::Algorithm::kADCSimpleWindow)
     .value("kHorizontalMuon", TriggerCandidateData::Algorithm::kHorizontalMuon)
     .value("kPlaneCoincidence", TriggerCandidateData::Algorithm::kPlaneCoincidence)
+    .value("kDBSCAN", TriggerCandidateData::Algorithm::kDBSCAN)
     .value("kCustom", TriggerCandidateData::Algorithm::kCustom)
     .export_values();
 

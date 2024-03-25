@@ -31,7 +31,8 @@ struct TriggerCandidateData
     kHorizontalMuon = 7,
     kMichelElectron = 8,
     kPlaneCoincidence = 9,
-    kNeutronSourceCalib = 10,
+    kDBSCAN = 10,
+    kNeutronSourceCalib = 11,
   };
 
   enum class Algorithm
@@ -45,6 +46,7 @@ struct TriggerCandidateData
     kMichelElectron = 6, 
     kPlaneCoincidence = 7,    
     kCustom = 8, 
+    kDBSCAN = 9,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
@@ -78,6 +80,7 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kHorizontalMuon, "kHorizontalMuon" },
     { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
     { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
+    { TriggerCandidateData::Type::kDBSCAN, "kDBSCAN" },
     { TriggerCandidateData::Type::kNeutronSourceCalib, "kNeutronSourceCalib" },
   };
 }
