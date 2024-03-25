@@ -83,7 +83,6 @@ inline std::map<TriggerCandidateData::Type, std::string>
 get_trigger_candidate_type_names()
 {
   return {
-<<<<<<< HEAD
     { TriggerCandidateData::Type::kUnknown,              "kUnknown" },
     { TriggerCandidateData::Type::kTiming,               "kTiming" },
     { TriggerCandidateData::Type::kTPCLowE,              "kTPCLowE" },
