@@ -32,7 +32,8 @@ struct TriggerCandidateData
     kMichelElectron = 8,
     kPlaneCoincidence = 9,
     kDBSCAN = 10,
-    kBundle = 11,
+    kChannelDistance = 11,
+    kBundle = 12,
   };
 
   enum class Algorithm
@@ -47,7 +48,8 @@ struct TriggerCandidateData
     kPlaneCoincidence = 7,    
     kCustom = 8, 
     kDBSCAN = 9,
-    kBundle = 10,
+    kChannelDistance = 10,
+    kBundle = 11,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
@@ -82,6 +84,7 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
     { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
     { TriggerCandidateData::Type::kBundle, "kBundle" },
+    { TriggerCandidateData::Type::kChannelDistance, "kChannelDistance" },
     { TriggerCandidateData::Type::kDBSCAN, "kDBSCAN" },
   };
 }
