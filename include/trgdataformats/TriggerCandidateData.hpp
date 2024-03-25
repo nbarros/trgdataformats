@@ -31,16 +31,18 @@ struct TriggerCandidateData
     kHorizontalMuon = 7,
     kMichelElectron = 8,
     kPlaneCoincidence = 9,
-    kCTBFakeTrigger = 10,
-    kCTBBeam = 11,
-    kCTBBeamHiLoPressChkv = 12,
-    kCTBBeamLoPressChkv = 13,
-    kCTBBeamHiPressChkv = 14,
-    kCTBOffSpillCosmic = 15,
-    kCTBCosmic = 16, 
-    kCTBBeamNoChkv = 17,
-    kCTBCosmicJura = 18,
-    kCTBCosmicSaleve = 19,
+    kDBSCAN = 10,
+    kChannelDistance = 11,
+    kCTBFakeTrigger = 12,
+    kCTBBeam = 13,
+    kCTBBeamHiLoPressChkv = 14,
+    kCTBBeamLoPressChkv = 15,
+    kCTBBeamHiPressChkv = 16,
+    kCTBOffSpillCosmic = 17,
+    kCTBCosmic = 18,
+    kCTBBeamNoChkv = 19,
+    kCTBCosmicJura = 20,
+    kCTBCosmicSaleve = 21,
   };
 
   enum class Algorithm
@@ -53,7 +55,9 @@ struct TriggerCandidateData
     kHorizontalMuon = 5,
     kMichelElectron = 6, 
     kPlaneCoincidence = 7,    
-    kCustom = 8,
+    kCustom = 8, 
+    kDBSCAN = 9,
+    kChannelDistance = 10,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
@@ -87,6 +91,8 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kHorizontalMuon,       "kHorizontalMuon" },
     { TriggerCandidateData::Type::kMichelElectron,       "kMichelElectron" },
     { TriggerCandidateData::Type::kPlaneCoincidence,     "kPlaneCoincidence" },
+    { TriggerCandidateData::Type::kDBSCAN,               "kDBSCAN" },
+    { TriggerCandidateData::Type::kChannelDistance,      "kChannelDistance" },
     { TriggerCandidateData::Type::kCTBFakeTrigger,       "kCTBFakeTrigger" },
     { TriggerCandidateData::Type::kCTBBeam,              "kCTBBeam" },
     { TriggerCandidateData::Type::kCTBBeamHiLoPressChkv, "kCTBBeamHiLoPressChkv" },
