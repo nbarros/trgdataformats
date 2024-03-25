@@ -53,6 +53,8 @@ register_trigger_candidate(py::module& m)
     .value("kHorizontalMuon", TriggerCandidateData::Type::kHorizontalMuon)
     .value("kMichelElectron", TriggerCandidateData::Type::kMichelElectron)
     .value("kPlaneCoincidence", TriggerCandidateData::Type::kPlaneCoincidence)
+    .value("kBundle", TriggerCandidateData::Type::kBundle)
+    .value("kChannelDistance", TriggerCandidateData::Type::kChannelDistance)
     .value("kDBSCAN", TriggerCandidateData::Type::kDBSCAN)
     .value("kNeutronSourceCalib", TriggerCandidateData::Type::kNeutronSourceCalib)
     .export_values();
@@ -67,6 +69,8 @@ register_trigger_candidate(py::module& m)
     .value("kPlaneCoincidence", TriggerCandidateData::Algorithm::kPlaneCoincidence)
     .value("kDBSCAN", TriggerCandidateData::Algorithm::kDBSCAN)
     .value("kCustom", TriggerCandidateData::Algorithm::kCustom)
+    .value("kBundle", TriggerCandidateData::Algorithm::kBundle)
+    .value("kChannelDistance", TriggerCandidateData::Algorithm::kChannelDistance)
     .export_values();
 
   py::class_<TriggerCandidateData>(m, "TriggerCandidateData", py::buffer_protocol())
