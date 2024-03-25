@@ -33,16 +33,17 @@ struct TriggerCandidateData
     kPlaneCoincidence = 9,
     kDBSCAN = 10,
     kChannelDistance = 11,
-    kCTBFakeTrigger = 12,
-    kCTBBeam = 13,
-    kCTBBeamHiLoPressChkv = 14,
-    kCTBBeamLoPressChkv = 15,
-    kCTBBeamHiPressChkv = 16,
-    kCTBOffSpillCosmic = 17,
-    kCTBCosmic = 18,
-    kCTBBeamNoChkv = 19,
-    kCTBCosmicJura = 20,
-    kCTBCosmicSaleve = 21,
+    kBundle = 12,
+    kCTBFakeTrigger = 13,
+    kCTBBeam = 14,
+    kCTBBeamHiLoPressChkv = 15,
+    kCTBBeamLoPressChkv = 16,
+    kCTBBeamHiPressChkv = 17,
+    kCTBOffSpillCosmic = 18,
+    kCTBCosmic = 19,
+    kCTBBeamNoChkv = 20,
+    kCTBCosmicJura = 21,
+    kCTBCosmicSaleve = 22,
   };
 
   enum class Algorithm
@@ -58,6 +59,7 @@ struct TriggerCandidateData
     kCustom = 8, 
     kDBSCAN = 9,
     kChannelDistance = 10,
+    kBundle = 11,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
@@ -81,6 +83,7 @@ inline std::map<TriggerCandidateData::Type, std::string>
 get_trigger_candidate_type_names()
 {
   return {
+<<<<<<< HEAD
     { TriggerCandidateData::Type::kUnknown,              "kUnknown" },
     { TriggerCandidateData::Type::kTiming,               "kTiming" },
     { TriggerCandidateData::Type::kTPCLowE,              "kTPCLowE" },
@@ -93,6 +96,7 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kPlaneCoincidence,     "kPlaneCoincidence" },
     { TriggerCandidateData::Type::kDBSCAN,               "kDBSCAN" },
     { TriggerCandidateData::Type::kChannelDistance,      "kChannelDistance" },
+    { TriggerCandidateData::Type::kBundle,               "kBundle" },
     { TriggerCandidateData::Type::kCTBFakeTrigger,       "kCTBFakeTrigger" },
     { TriggerCandidateData::Type::kCTBBeam,              "kCTBBeam" },
     { TriggerCandidateData::Type::kCTBBeamHiLoPressChkv, "kCTBBeamHiLoPressChkv" },

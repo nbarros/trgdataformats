@@ -34,6 +34,7 @@ struct TriggerActivityData
     kDBSCAN = 6,
     kPlaneCoincidence = 7,
     kChannelDistance = 8,
+    kBundle = 9,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!

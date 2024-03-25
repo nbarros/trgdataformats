@@ -56,6 +56,7 @@ register_trigger_activity(py::module& m)
     .value("kHorizontalMuon", TriggerActivityData::Algorithm::kHorizontalMuon)
     .value("kMichelElectron", TriggerActivityData::Algorithm::kMichelElectron)
     .value("kDBSCAN", TriggerActivityData::Algorithm::kDBSCAN)
+    .value("kBundle", TriggerActivityData::Algorithm::kBundle)
     .value("kChannelDistance", TriggerActivityData::Algorithm::kChannelDistance)
     .export_values();
 
