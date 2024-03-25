@@ -53,6 +53,7 @@ register_trigger_candidate(py::module& m)
     .value("kHorizontalMuon", TriggerCandidateData::Type::kHorizontalMuon)
     .value("kMichelElectron", TriggerCandidateData::Type::kMichelElectron)
     .value("kPlaneCoincidence", TriggerCandidateData::Type::kPlaneCoincidence)
+    .value("kBundle", TriggerCandidateData::Type::kBundle)
     .export_values();
 
   py::enum_<TriggerCandidateData::Algorithm>(m, "TriggerCandidateData::Algorithm")
@@ -64,6 +65,7 @@ register_trigger_candidate(py::module& m)
     .value("kHorizontalMuon", TriggerCandidateData::Algorithm::kHorizontalMuon)
     .value("kPlaneCoincidence", TriggerCandidateData::Algorithm::kPlaneCoincidence)
     .value("kCustom", TriggerCandidateData::Algorithm::kCustom)
+    .value("kBundle", TriggerCandidateData::Algorithm::kBundle)
     .export_values();
 
   py::class_<TriggerCandidateData>(m, "TriggerCandidateData", py::buffer_protocol())

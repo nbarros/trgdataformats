@@ -33,6 +33,7 @@ struct TriggerActivityData
     kMichelElectron = 5,
     kDBSCAN = 6,
     kPlaneCoincidence = 7,
+    kBundle = 8,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
