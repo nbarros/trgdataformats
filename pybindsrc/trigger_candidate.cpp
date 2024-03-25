@@ -54,6 +54,7 @@ register_trigger_candidate(py::module& m)
     .value("kMichelElectron", TriggerCandidateData::Type::kMichelElectron)
     .value("kPlaneCoincidence", TriggerCandidateData::Type::kPlaneCoincidence)
     .value("kBundle", TriggerCandidateData::Type::kBundle)
+    .value("kDBSCAN", TriggerCandidateData::Type::kDBSCAN)
     .export_values();
 
   py::enum_<TriggerCandidateData::Algorithm>(m, "TriggerCandidateData::Algorithm")
@@ -64,6 +65,7 @@ register_trigger_candidate(py::module& m)
     .value("kADCSimpleWindow", TriggerCandidateData::Algorithm::kADCSimpleWindow)
     .value("kHorizontalMuon", TriggerCandidateData::Algorithm::kHorizontalMuon)
     .value("kPlaneCoincidence", TriggerCandidateData::Algorithm::kPlaneCoincidence)
+    .value("kDBSCAN", TriggerCandidateData::Algorithm::kDBSCAN)
     .value("kCustom", TriggerCandidateData::Algorithm::kCustom)
     .value("kBundle", TriggerCandidateData::Algorithm::kBundle)
     .export_values();
