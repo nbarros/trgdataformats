@@ -45,6 +45,7 @@ struct TriggerCandidateData
     kCTBCosmicJura = 21,
     kCTBCosmicSaleve = 22,
     kNeutronSourceCalib = 23,
+    kChannelAdjacency = 24,
   };
 
   enum class Algorithm
@@ -61,6 +62,7 @@ struct TriggerCandidateData
     kDBSCAN = 9,
     kChannelDistance = 10,
     kBundle = 11,
+    kChannelAdjacency = 12,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
@@ -108,6 +110,7 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kCTBCosmicJura,        "kCTBCosmicJura" },
     { TriggerCandidateData::Type::kCTBCosmicSaleve,      "kCTBCosmicSaleve" },
     { TriggerCandidateData::Type::kNeutronSourceCalib,   "kNeutronSourceCalib" },
+    { TriggerCandidateData::Type::kChannelAdjacency,     "kChannelAdjacency" },
   };
 }
 
