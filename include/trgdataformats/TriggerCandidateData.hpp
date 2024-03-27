@@ -44,6 +44,7 @@ struct TriggerCandidateData
     kCTBBeamNoChkv = 20,
     kCTBCosmicJura = 21,
     kCTBCosmicSaleve = 22,
+    kNeutronSourceCalib = 23,
   };
 
   enum class Algorithm
@@ -106,6 +107,7 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kCTBBeamNoChkv,        "kCTBBeamNoChkv" },
     { TriggerCandidateData::Type::kCTBCosmicJura,        "kCTBCosmicJura" },
     { TriggerCandidateData::Type::kCTBCosmicSaleve,      "kCTBCosmicSaleve" },
+    { TriggerCandidateData::Type::kNeutronSourceCalib,   "kNeutronSourceCalib" },
   };
 }
 

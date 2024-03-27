@@ -66,6 +66,7 @@ register_trigger_candidate(py::module& m)
     .value("kCTBBeamNoChkv", TriggerCandidateData::Type::kCTBBeamNoChkv)
     .value("kCTBCosmicJura", TriggerCandidateData::Type::kCTBCosmicJura)
     .value("kCTBCosmicSaleve", TriggerCandidateData::Type::kCTBCosmicSaleve)
+    .value("kNeutronSourceCalib", TriggerCandidateData::Type::kNeutronSourceCalib)
     .export_values();
 
   py::enum_<TriggerCandidateData::Algorithm>(m, "TriggerCandidateData::Algorithm")
