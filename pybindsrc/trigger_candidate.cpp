@@ -67,6 +67,7 @@ register_trigger_candidate(py::module& m)
     .value("kCTBCosmicJura", TriggerCandidateData::Type::kCTBCosmicJura)
     .value("kCTBCosmicSaleve", TriggerCandidateData::Type::kCTBCosmicSaleve)
     .value("kNeutronSourceCalib", TriggerCandidateData::Type::kNeutronSourceCalib)
+    .value("kChannelAdjacency", TriggerCandidateData::Type::kChannelAdjacency)
     .export_values();
 
   py::enum_<TriggerCandidateData::Algorithm>(m, "TriggerCandidateData::Algorithm")
@@ -81,6 +82,7 @@ register_trigger_candidate(py::module& m)
     .value("kDBSCAN", TriggerCandidateData::Algorithm::kDBSCAN)
     .value("kChannelDistance", TriggerCandidateData::Algorithm::kChannelDistance)
     .value("kBundle", TriggerCandidateData::Algorithm::kBundle)
+    .value("kChannelAdjacency", TriggerCandidateData::Algorithm::kChannelAdjacency)
     .export_values();
 
   py::class_<TriggerCandidateData>(m, "TriggerCandidateData", py::buffer_protocol())

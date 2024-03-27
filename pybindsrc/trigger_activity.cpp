@@ -58,6 +58,7 @@ register_trigger_activity(py::module& m)
     .value("kDBSCAN", TriggerActivityData::Algorithm::kDBSCAN)
     .value("kBundle", TriggerActivityData::Algorithm::kBundle)
     .value("kChannelDistance", TriggerActivityData::Algorithm::kChannelDistance)
+    .value("kChannelAdjacency", TriggerActivityData::Algorithm::kChannelAdjacency)
     .export_values();
 
   py::class_<TriggerActivityData>(m, "TriggerActivityData", py::buffer_protocol())

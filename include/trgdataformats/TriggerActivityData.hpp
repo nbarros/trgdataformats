@@ -35,6 +35,7 @@ struct TriggerActivityData
     kPlaneCoincidence = 7,
     kChannelDistance = 8,
     kBundle = 9,
+    kChannelAdjacency = 10,
   };
 
   // Update this version number if there are any changes to the in-memory representation of this class!
