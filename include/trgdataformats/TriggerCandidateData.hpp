@@ -117,8 +117,8 @@ get_trigger_candidate_type_names()
     { TriggerCandidateData::Type::kChannelAdjacency,     "kChannelAdjacency" },
     { TriggerCandidateData::Type::kCIBFakeTrigger,       "kCIBFakeTrigger" },
     { TriggerCandidateData::Type::kCIBLaserTriggerP1,    "kCIBLaserTriggerP1" },
-    { TriggerCandidateData::Type::kCIBLaserTriggerP1,    "kCIBLaserTriggerP2" },
-    { TriggerCandidateData::Type::kCIBLaserTriggerP1,    "kCIBLaserTriggerP3" },
+    { TriggerCandidateData::Type::kCIBLaserTriggerP2,    "kCIBLaserTriggerP2" },
+    { TriggerCandidateData::Type::kCIBLaserTriggerP3,    "kCIBLaserTriggerP3" },
   };
 }
 
